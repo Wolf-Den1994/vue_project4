@@ -3,8 +3,11 @@
     <div class="card">
       <h2>Актуальные новости {{ now }}</h2>
     </div>
-    <app-news></app-news>
-    <app-news></app-news>
+    <app-news
+      v-for="item in news"
+      :key="item"
+      :title="item"
+    ></app-news>
   </div>
 </template>
 
@@ -14,7 +17,6 @@ export default {
   name: 'App',
   data () {
     return {
-      isOpen: false,
       now: new Date().toLocaleDateString(),
       news: [
         'Джо Байден победил на выборах в США',
@@ -23,8 +25,6 @@ export default {
     }
   },
   components: {
-    // 'app-news': AppNews
-    // AppNews: AppNews
     AppNews
   }
 }
