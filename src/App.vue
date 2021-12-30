@@ -3,6 +3,16 @@
     <div class="card">
       <h2>Slots</h2>
     </div>
+
+    <app-list>
+      <template #default="{ idx, iter }">
+        <span style="color: #ff0839">
+          <strong>{{ idx }}</strong>
+          Item: {{ iter }}
+        </span>
+      </template>
+    </app-list>
+
     <app-block>
       <p>Это текст в блоке</p>
       <template #header>
@@ -18,9 +28,11 @@
 
 <script>
 import AppBlock from './AppBlock'
+import AppList from './AppList'
 export default {
   components: {
-    AppBlock
+    AppBlock,
+    AppList
   }
 }
 </script>
