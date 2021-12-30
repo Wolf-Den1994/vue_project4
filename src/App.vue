@@ -10,6 +10,7 @@
       :title="item.title"
       :id="item.id"
       :isOpen="item.isOpen"
+      @open-news="openNews"
     ></app-news>
   </div>
 </template>
@@ -38,6 +39,12 @@ export default {
   },
   components: {
     AppNews
+  },
+  methods: {
+    openNews () {
+      this.openRate++
+      // console.log(data)
+    }
   }
 }
 </script>
