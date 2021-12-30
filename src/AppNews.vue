@@ -1,13 +1,14 @@
 <template>
   <div class="card">
     <h3>{{ title }}</h3>
-    <app-button @action="changeOpen" :text="isNewsOpen ? 'Закрыть' : 'Открыть'"></app-button>
+    <app-button @action="changeOpen">
+      {{ isNewsOpen ? 'Закрыть' : 'Открыть' }}
+    </app-button>
     <app-button
       color="danger"
       v-if="wasRead"
       @action="$emit('un-read', id)"
-      text="Отметить непрочитанной"
-    ></app-button>
+    >Отметить непрочитанной</app-button>
     <div v-if="isNewsOpen">
       <hr>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, alias aliquid cum dolorem, dolores dolorum et exercitationem facere inventore minus molestiae porro quo rem sapiente similique sint tempora tempore voluptates?</p>
@@ -15,8 +16,7 @@
         v-if="!wasRead"
         color="primary"
         @action="readNews"
-        text="Прочесть новость"
-      ></app-button>
+      >Прочесть новость</app-button>
     </div>
   </div>
 </template>
