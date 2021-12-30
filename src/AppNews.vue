@@ -4,7 +4,7 @@
     <button class="btn" @click="changeOpen">
       {{ isNewsOpen ? 'Закрыть' : 'Открыть' }}
     </button>
-    <button class="btn danger" v-if="wasRead" @click="unReadNews">
+    <button class="btn danger" v-if="wasRead" @click="$emit('un-read', id)">
       Отметить непрочитанной
     </button>
     <div v-if="isNewsOpen">
@@ -33,9 +33,6 @@ export default {
       this.$emit('read-news', this.id)
       this.isNewsOpen = false
       this.$emit('not-read-news')
-    },
-    unReadNews () {
-      this.$emit('un-read', this.id)
     }
   },
   props: {
