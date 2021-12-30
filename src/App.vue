@@ -8,7 +8,7 @@
       :key="item.id"
       :title="item.title"
       :id="item.id"
-      :is-open="item.isOpen"
+      v-model="item.isOpen"
     ></app-news>
   </div>
 </template>
