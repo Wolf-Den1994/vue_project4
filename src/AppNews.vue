@@ -2,7 +2,7 @@
   <div class="card">
     <h3>{{ title }}</h3>
     <button class="btn" @click="changeOpen">Открыть</button>
-    <p v-if="modelValue">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, alias aliquid cum dolorem, dolores dolorum et exercitationem facere inventore minus molestiae porro quo rem sapiente similique sint tempora tempore voluptates?</p>
+    <p v-if="isNewsOpen">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A, alias aliquid cum dolorem, dolores dolorum et exercitationem facere inventore minus molestiae porro quo rem sapiente similique sint tempora tempore voluptates?</p>
   </div>
 </template>
 
@@ -10,18 +10,14 @@
 export default {
   data () {
     return {
-      item: 'item string'
+      isNewsOpen: this.isOpen
     }
   },
   methods: {
     changeOpen () {
-      console.log('1')
-      // this.isOpen = !this.isOpen
-      this.$emit('update:modelValue', !this.modelValue)
-      // ESLint: Unexpected mutation of "isOpen" prop.(vue/no-mutating-props)
+      this.isNewsOpen = !this.isNewsOpen
     }
   },
-  emits: ['update:modelValue'],
   props: {
     title: {
       type: String,
@@ -31,7 +27,7 @@ export default {
       type: Number,
       required: true
     },
-    modelValue: {
+    isOpen: {
       type: Boolean,
       required: false,
       default: false,

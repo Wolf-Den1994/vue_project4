@@ -2,13 +2,14 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Актуальные новости {{ now }}</h2>
+      <span>Открыто: {{ openRate }}</span>
     </div>
     <app-news
       v-for="item in news"
       :key="item.id"
       :title="item.title"
       :id="item.id"
-      v-model="item.isOpen"
+      :isOpen="item.isOpen"
     ></app-news>
   </div>
 </template>
@@ -20,6 +21,7 @@ export default {
   data () {
     return {
       now: new Date().toLocaleDateString(),
+      openRate: 0,
       news: [
         {
           title: 'Джо Байден победил на выборах в США',
