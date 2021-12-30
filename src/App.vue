@@ -30,13 +30,26 @@ export default {
     AppTextOne,
     AppTextTwo
   },
+  mounted () {
+    setTimeout(() => {
+      this.componentName = 'new'
+    }, 2000)
+  },
   computed: {
-    componentName () {
-      // if (this.active === 'one') {
-      //   return 'app-text-one'
-      // }
-      // return 'app-text-two'
-      return 'app-text-' + this.active
+    // componentName () {
+    //   // if (this.active === 'one') {
+    //   //   return 'app-text-one'
+    //   // }
+    //   // return 'app-text-two'
+    //   return 'app-text-' + this.active
+    // },
+    componentName: {
+      get () {
+        return 'app-text-' + this.active
+      },
+      set (value) {
+        console.log('componentName value', value)
+      }
     },
     oneColor () {
       return this.active === 'one' ? 'primary' : ''
