@@ -41,6 +41,16 @@ export default {
         return value === true || value === false
       }
     }
+  },
+  // emits: ['open-news']
+  emits: {
+    // 'open-news' (num) { // или null
+    //   if (num) {
+    //     return true
+    //   }
+    //   console.warn('No data in open-news emit')
+    //   return false
+    // }
   }
 }
 </script>
