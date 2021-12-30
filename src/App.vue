@@ -34,19 +34,25 @@ export default {
       readRate: 0,
       news: [
         {
-          title: 'Джо Байден победил на выборах в США',
+          title: 'Это новость №1',
           id: 1,
           isOpen: false,
           wasRead: false
         },
         {
-          title: 'Vue 3 успешно работает',
+          title: 'Это новость №2',
           id: 2,
           isOpen: false,
           wasRead: false
         }
       ],
       notReadRate: 2
+    }
+  },
+  provide () {
+    return {
+      title: 'Список всех новостей',
+      news: this.news
     }
   },
   components: {

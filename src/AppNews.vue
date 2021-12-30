@@ -17,12 +17,14 @@
         color="primary"
         @action="readNews"
       >Прочесть новость</app-button>
+      <app-news-list></app-news-list>
     </div>
   </div>
 </template>
 
 <script>
 import AppButton from './AppButton'
+import AppNewsList from './AppNewsList'
 export default {
   data () {
     return {
@@ -89,7 +91,8 @@ export default {
     }
   },
   components: {
-    AppButton
+    AppButton,
+    AppNewsList
   }
 }
 </script>
