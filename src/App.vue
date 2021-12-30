@@ -2,7 +2,7 @@
   <div class="container pt-1">
     <div class="card">
       <h2>Динамические и асинхронные компоненты</h2>
-      <app-button :color="oneColor" @action="active = 'one'">One</app-button>
+      <app-button ref="myBtn" :color="oneColor" @action="active = 'one'">One</app-button>
       <app-button :color="twoColor" @action="active = 'two'">Two</app-button>
     </div>
 
@@ -31,9 +31,12 @@ export default {
     AppTextTwo
   },
   mounted () {
-    setTimeout(() => {
-      this.componentName = 'new'
-    }, 2000)
+    // setTimeout(() => {
+    //   this.componentName = 'new'
+    // }, 2000)
+
+    console.log(this.$refs.myBtn)
+    this.$refs.myBtn.btnLog()
   },
   computed: {
     // componentName () {
